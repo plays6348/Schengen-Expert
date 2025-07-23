@@ -1,4 +1,4 @@
-const siteUrl = "https://fastholidays.org";
+const siteUrl = "https://schengenexpert.co.uk";
 
 module.exports = {
   siteUrl,

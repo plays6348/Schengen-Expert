@@ -1,10 +1,10 @@
 export const number = '020 3650 7866';
 export const whatsapp = '+447476959202';
-export const appName = 'Fast Holidays';
-export const email = 'info@fastholidays.org';
-export const bookingEmail = 'booking@fastholidays.org';
+export const appName = 'Schengen Expert';
+export const email = 'info@schengenexpert.co.uk';
+export const bookingEmail = 'booking@schengenexpert.co.uk';
 export const address = 'London, United Kingdom';
 export const fbLink = 'https://www.facebook.com/fastholidays';
 export const twitterLink = 'https://twitter.com/Fast_Holidays';
 export const instagramLink = 'https://www.instagram.com/fastholidaysofficial/';
-export const appLink = 'https://https://fastholidays.org';
+export const appLink = 'https://schengenexpert.co.uk';

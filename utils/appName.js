@@ -1,1 +1,1 @@
-export const appName = 'Fast Holidays';
+export const appName = 'Schengen Expert';
