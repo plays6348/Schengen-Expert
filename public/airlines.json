@@ -1,0 +1,180 @@
+[
+    {
+        "id": 1,
+        "img": "/assets/Airlines/Air_Transat.png",
+        "name": "Air_Transat"
+    },
+    {
+        "id": 2,
+        "img": "/assets/Airlines/Brussels_Airline.png",
+        "name": "Brussels_Airline"
+    },
+    {
+        "id": 3,
+        "img": "/assets/Airlines/EasyJet_logo.png",
+        "name": "EasyJet_logo"
+    },
+    {
+        "id": 4,
+        "img": "/assets/Airlines/Egypt_Air.png",
+        "name": "Egypt_Air"
+    },
+    {
+        "id": 5,
+        "img": "/assets/Airlines/Emirates.png",
+        "name": "Emirates" 
+    },
+    {
+        "id": 6,
+        "img": "/assets/Airlines/Ethiopian-Airlines-Logo.png",
+        "name": "Ethiopian-Airlines-Logo"
+    },
+    {
+        "id": 7,
+        "img": "/assets/Airlines/Gulf_Air.png",
+        "name": "Gulf_Air"
+    },
+    {
+        "id": 8,
+        "img": "/assets/Airlines/KLM.png",
+        "name": "KLM.png"
+    },
+    {
+        "id": 9,
+        "img": "/assets/Airlines/Malaysia_Airlines.png",
+        "name": "Malaysia_Airlines"
+    },
+    {
+        "id": 10,
+        "img": "/assets/Airlines/Oman_Air.png",
+        "name": "Oman_Air"
+    },
+    {
+        "id": 11,
+        "img": "/assets/Airlines/Qantas_Airways.png",
+        "name": "Qantas_Airways"
+    },
+    {
+        "id": 12,
+        "img": "/assets/Airlines/Qatar_Airways.png",
+        "name": "Qatar_Airways"
+    },
+    {
+        "id": 13,
+        "img": "/assets/Airlines/RwandAir.png",
+        "name": "RwandAir"
+    },
+    {
+        "id": 14,
+        "img": "/assets/Airlines/Singapore_Airlines.png",
+        "name": "Singapore_Airlines"
+    
+    },
+    {
+        "id": 15,
+        "img": "/assets/Airlines/South_African_Airways.png",
+        "name": "South_African_Airways"
+    },
+    {
+        "id": 16,
+        "img": "/assets/Airlines/TAP_Portugal.png",
+        "name": "TAP_Portugal"
+    },
+    {
+        "id": 17,
+        "img": "/assets/Airlines/Thai_Airways.png",
+        "name": "Thai_Airways"
+    
+    },
+    {
+        "id": 18,
+        "img": "/assets/Airlines/United_Airlines.png",
+        "name": "United_Airlines"
+
+    },
+    {
+        "id": 19,
+        "img": "/assets/Airlines/Vietnam_airlines.png",
+        "name": "Vietnam_airlines"
+    },
+    {
+        "id": 20,
+        "img": "/assets/Airlines/Virgin_Atlantic.png",
+        "name": "Virgin_Atlantic"
+    },
+    {
+        "id": 21,
+        "img": "/assets/Airlines/Virgin_Australia.png",
+        "name": "Virgin_Australia"
+    },
+    {
+        "id": 22,
+        "img": "/assets/Airlines/air-france.png",
+        "name": "air-france"
+    },
+    {
+        "id": 23,
+        "img": "/assets/Airlines/american_airlines.png",
+        "name": "american_airlines"
+    },
+    {
+        "id": 24,
+        "img": "/assets/Airlines/british-airways.png",
+        "name": "british-airways"
+    },
+    {
+        "id": 25,
+        "img": "/assets/Airlines/etihad-air.png",
+        "name": "etihad-air"
+    },
+    {
+        "id": 26,
+        "img": "/assets/Airlines/indigo.png",
+        "name": "indigo"
+    },
+    {
+        "id": 27,
+        "img": "/assets/Airlines/kenyaairways.png",
+        "name": "kenyaairways"
+    },
+    {
+        "id": 28,
+        "img": "/assets/Airlines/lufthansa.png",
+        "name": "lufthansa"
+    },
+    {
+        "id": 29,
+        "img": "/assets/Airlines/pakistan_international_airlines.png",
+        "name": "pakistan_international_airlines"
+    },
+    {
+        "id": 30,
+        "img": "/assets/Airlines/pegasus_airlines.png",
+        "name": "pegasus_airlines"
+    },
+    {
+        "id": 31,
+        "img": "/assets/Airlines/saudi_arabian_airlines.png",
+        "name": "saudi_arabian_airlines"
+    },
+    {
+        "id": 32,
+        "img": "/assets/Airlines/swiss.png",
+        "name": "swiss"
+    },
+    {
+        "id": 33,
+        "img": "/assets/Airlines/thomas_cook.png",
+        "name": "thomas_cook"
+    },
+    {
+        "id": 34,
+        "img": "/assets/Airlines/turkish_airlines.png",
+        "name": "turkish_airlines"
+    },
+    {
+        "id": 35,
+        "img": "/assets/Airlines/westjet.png",
+        "name": "westjet"
+    }
+]

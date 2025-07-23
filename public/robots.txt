@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Disallow: /secret
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://https://fastholidays.org
+
+# Sitemaps
+Sitemap: https://https://fastholidays.org/sitemap.xml

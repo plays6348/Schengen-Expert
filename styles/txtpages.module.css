@@ -1,0 +1,666 @@
+.homePage__txt {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  opacity: 0.9;
+  margin: 1rem 0rem 5rem 0;
+  padding: 0 1rem;
+}
+
+.aboutUs {
+  max-width: 786px;
+}
+
+.txtPage {
+  max-width: 800px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.faqPage {
+  margin: 7rem 2rem 3rem 6rem;
+  max-width: 900px;
+}
+
+.section11 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.followUs__links a {
+  color: #cc1817;
+}
+
+.holidaybanner {
+  /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
+  background-image: url("../public/assets/Holidays\ Banner2.jpg");
+  height: 90vh;
+  /* padding-top: 5rem; */
+  background-repeat: no-repeat;
+  background-position: 50% 67%;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.holidayheading{
+  text-align: center;
+  margin: 80px 0;
+}
+
+.showcase2{
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 786px) {
+  .txtPage {
+    margin: 7rem 2rem 3rem 2rem;
+  }
+
+  .faqPage {
+    margin: 7rem 2rem 3rem 2rem;
+  }
+  .showcase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ribbon_2{
+    z-index: 0 !important;
+  }
+  .holidaybanner{
+    /* background-position: 50% 25%;
+    background-size: contain;
+    height: 59vh; */
+    display: none;
+  }
+  .holidayheading{
+    margin: 140px 0 50px 0;
+  }
+  .showcase2{
+    display: none !important;
+  }
+}
+
+.showcase {
+  /* background-color: #fefefe; */
+  /* min-height: 100vh; */
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.showcase2 {
+  /* background-color: #fefefe; */
+  /* min-height: 100vh; */
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.ribbon_2 {
+  --f: 10px; /* control the folded part*/
+  --r: 15px; /* control the ribbon shape */
+  --t: 25px; /* the top offset */
+  z-index: 1;
+  color: #fff;
+  position: absolute;
+  inset: var(--t) calc(-1*var(--f)) auto auto;
+  /* padding: 10px var(--f) calc(10px + var(--r)); */
+  padding: 5px 20px 20px 30px;
+  clip-path: 
+    polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
+      calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
+      var(--r) calc(50% - var(--f)/2));
+  background: #cc1817;
+  box-shadow: 0 calc(-1*var(--f)) 0 inset #0005;
+}
+
+.travel_card {
+  text-decoration: none;
+  position: relative;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  font-weight: 300;
+  background-color: white;
+  box-shadow: 0px 0px 100px -10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  width: 350px;
+  transition: all .28s ease-in-out;
+}
+
+.package_image {
+    background-image: url(public/assets/Taj\ Coral\ Reef\ Resort\ &\ Spa.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    /* transition: all .28s ease-in-out; */
+    cursor: pointer;
+}
+
+.package_image2{
+  background-image: url(public/assets/nova\ maldives\ pic.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image3{
+  background-image: url(public/assets/Crown\ Paradise\ Club\ Cancun\ &\ Canyon.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image3{
+  background-image: url(public/assets/Crown\ Paradise\ Club\ Cancun\ &\ Canyon.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image4{
+  background-image: url(public/assets/TH8\ Palm\ Dubai.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image5{
+  background-image: url(public/assets/Royal\ Central\ The\ Palm\ dubai.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image6{
+  background-image: url(public/assets/InterContinental\ Mauritius\ Resort\ Balaclava\ Fort.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image7{
+  background-image: url(public/assets/Jumeirah\ Mina\ A’\ Salam\ Dubai.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image8{
+  background-image: url(public/assets/Paradise\ Cove\ Boutique\ Hotel.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image9{
+  background-image: url(public/assets/Shandrani\ Beachcomber\ Resort\ &\ Spa.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image10{
+  background-image: url(public/assets/Shandrani\ Beachcomber\ Resort\ &\ Spa.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image11{
+  background-image: url(public/assets/Sofitel\ Mauritius\ L\ Imperial\ Resort\ &\ Spa.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image12{
+  background-image: url(public/assets/Outrigger\ Mauritius\ Beach\ Resort\ \(\ JUNIOR\ SUITE\ BEACH\ FRONT\).jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image13{
+  background-image: url(public/assets/Aska\ Lara\ Resort\ &\ Spa.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image14{
+  background-image: url(public/assets/Queens\ Park\ Hotel\ Goynuk\ Kemer\ Family\ Bungalow.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image15{
+  background-image: url(public/assets/Delphin\ Imperial-\ All\ Inclusive\ Double\ Superior\ Land\ Side.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image16{
+  background-image: url(public/assets/Kuta\ Paradiso\ Hotel\ Bali.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image17{
+  background-image: url(public/assets/Hotel\ Nikko\ Bali\ Benoa\ Beach.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image18{
+  background-image: url(public/assets/Lv8\ Resort\ Hotel.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image19{
+  background-image: url(public/assets/Siyam\ World\ Maldives.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image20{
+  background-image: url(public/assets/Las\ Vegas\ &\ Punta\ Cana.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image21{
+  background-image: url(public/assets/Angaga\ Island\ Resort\ &\ Spa\ Maldives.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image22{
+  background-image: url(public/assets/Marriott\ Resort\ Palm\ Jumeirah\ with\ Palm.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image22{
+  background-image: url(public/assets/Marriott\ Resort\ Palm\ Jumeirah\ with\ Palm.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image23{
+  background-image: url(public/assets/Anantara\ The\ Palm\ Dubai\ Resort.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image24{
+  background-image: url(public/assets/Fairmont\ the\ Palm\ with\ Half\ Board.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image25{
+  background-image: url(public/assets/Walfdorf\ Astoria\ Dubai\ the\ Palm\ with\ Half\ Board.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image26{
+  background-image: url(public/assets/Taj\ Exotica\ Resort\ &\ Spa\ with\ Half\ Board.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image27{
+  background-image: url(public/assets/Sofitel\ the\ Palm\ with\ Half\ Board.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image28{
+  background-image: url(public/assets/hilton\ hotel\ dubai\ palm\ jumeirah.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image29{
+  background-image: url(public/assets/Amwaj\ Rotana\ Jumeirah\ Beach\ Dubai.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.package_image30{
+  background-image: url(public/assets/Rixos\ Premium\ Dubai\ JBR.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+  /* transition: all .28s ease-in-out; */
+  cursor: pointer;
+}
+
+.travel_card:hover{
+  transform: scale(1.1);
+}
+
+   .content {
+    color: #232323;
+    padding: 1em 1.5em;
+   }
+    
+    .category {
+      font-size: 1.2em;
+      color: #888888;
+    }
+    
+    .topic {
+      font-size: 1.0em;
+      line-height: 30px;
+      margin: 10px 0px;
+      font-weight: 500;
+    }
+
+    .carddestinationtxt{
+      color: #cc1817;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      margin: 0 5px;
+    }
+    
+    .price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #cc1817;
+    }
+      
+       .discount_info {
+        color: #888888;
+      }
+      
+      .original_price {
+        font-size: 2em;
+        font-weight: 500;
+      }
+
+      .cardButtons {
+        margin: 10px 0px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .cardButtons a{
+        text-decoration: none !important;
+        background-color: #cc1817;
+        color: #fff !important;
+        font-size: 0.875rem !important;
+        font-weight: 500 !important;
+        text-transform: uppercase;
+        padding: 8px 30px;
+        border-radius: 4px;
+        transition: all 0.15s ease-in-out;
+      }
+
+      /* .callingNumber2 {
+        text-decoration: none !important;
+        background-color: #cc1817;
+        color: #fff !important;
+        font-size: 0.875rem !important;
+        font-weight: 500 !important;
+        text-transform: uppercase;
+        padding: 8px 30px;
+        border-radius: 4px;
+        transition: all 0.15s ease-in-out;
+      } */
+      
+      .cardButtons a:hover {
+        background-color: #2d5495;
+        color: #fff;
+      }

@@ -1,0 +1,224 @@
+[
+    {
+        "id": 1,
+        "image": "/assets/country/Portugal.png",
+        "name": "Portugal",
+        "details": "This is Portugal flag"
+    },
+    {
+        "id": 2,
+        "image": "/assets/country/Liechtenstein.png",
+        "name": "Liechtenstein",
+        "details": "This is Liechtenstein flag"
+    },
+    {
+        "id": 3,
+        "image": "/assets/country/Germany.webp",
+        "name": "Germany",
+        "details": "This is Germany flag"
+    },
+    {
+        "id": 4,
+        "image": "/assets/country/Iceland.png",
+        "name": "Iceland",
+        "details": "This is Iceland flag"
+    },
+    {
+        "id": 5,
+        "image": "/assets/country/Finland.png",
+        "name": "Finland",
+        "details": "This is Finland flag"
+    },
+    {
+        "id": 6,
+        "image": "/assets/country/Austria.png",
+        "name": "Austria",
+        "details": "This is Austria flag"
+    },
+    {
+        "id": 7,
+        "image": "/assets/country/Lithuania.png",
+        "name": "Lithuania",
+        "details": "This is Lithuania flag"
+    },
+    {
+        "id": 8,
+        "image": "/assets/country/Slovakia.png",
+        "name": "Slovakia",
+        "details": "This is Slovakia flag"
+    },
+    {
+        "id": 9,
+        "image": "/assets/country/Greece.webp",
+        "name": "Greece",
+        "details": "This is Greece flag"
+    },
+    {
+        "id": 10,
+        "image": "/assets/country/Czech Republic.png",
+        "name": "Czech-Republic",
+        "details": "This is Czech-Republic flag"
+    },
+    {
+        "id": 11,
+        "image": "/assets/country/Malta.png",
+        "name": "Malta",
+        "details": "This is Malta flag"
+    },
+    {
+        "id": 12,
+        "image": "/assets/country/Hungary.png",
+        "name": "Hungary",
+        "details": "This is Hungary flag"
+    },
+    {
+        "id": 13,
+        "image": "/assets/country/Switzerland.png",
+        "name": "Switzerland",
+        "details": "This is Switzerland flag"
+    },
+    {
+        "id": 14,
+        "image": "/assets/country/Estonia.png",
+        "name": "Estonia",
+        "details": "This is Estonia flag"
+    },
+    {
+        "id": 15,
+        "image": "/assets/country/Slovenia.png",
+        "name": "Slovenia",
+        "details": "This is Slovenia flag"
+    },
+    {
+        "id": 16,
+        "image": "/assets/country/Belgium.png",
+        "name": "Belgium",
+        "details": "This is Belgium flag"
+    },
+    {
+        "id": 17,
+        "image": "/assets/country/Croatia.png",
+        "name": "Croatia",
+        "details": "This is Croatia flag"
+    },
+    {
+        "id": 18,
+        "image": "/assets/country/Norway.png",
+        "name": "Norway",
+        "details": "This is Norway flag"
+    },
+    {
+        "id": 19,
+        "image": "/assets/country/Denmark.png",
+        "name": "Denmark",
+        "details": "This is Denmark flag"
+    },
+    {
+        "id": 20,
+        "image": "/assets/country/Sweden.png",
+        "name": "Sweden",
+        "details": "This is Sweden flag"
+    },
+    {
+        "id": 21,
+        "image": "/assets/country/Latvia.png",
+        "name": "Latvia",
+        "details": "This is Latvia flag"
+    },
+    {
+        "id": 22,
+        "image": "/assets/country/Netherlands.png",
+        "name": "Netherlands",
+        "details": "This is Netherlands flag"
+    },
+    {
+        "id": 23,
+        "image": "/assets/country/Luxembourg.png",
+        "name": "Luxembourg",
+        "details": "This is Luxembourg flag"
+    },
+    {
+        "id": 24,
+        "image": "/assets/country/Poland.png",
+        "name": "Poland",
+        "details": "This is Poland flag"
+    },
+    {
+        "id": 25,
+        "image": "/assets/country/Italy.png",
+        "name": "Italy",
+        "details": "This is Italy flag"
+    },
+    {
+        "id": 26,
+        "image": "/assets/country/France.png",
+        "name": "France",
+        "details": "This is France flag"
+    },
+    {
+        "id": 27,
+        "image": "/assets/country/Spain.png",
+        "name": "Spain",
+        "details": "This is Spain flag"
+    },
+    {
+        "id": 28,
+        "image": "/assets/country/Turkey.png",
+        "name": "Turkey",
+        "details": "This is Turkey flag"
+    },
+    {
+        "id": 29,
+        "image": "/assets/country/Georgia.png",
+        "name": "Georgia",
+        "details": "This is Georgia flag"
+    },
+    {
+        "id": 30,
+        "image": "/assets/country/Mexico.png",
+        "name": "Mexico",
+        "details": "This is Mexico flag"
+    },
+    {
+        "id": 31,
+        "image": "/assets/country/Barbados.png",
+        "name": "Barbados",
+        "details": "This is Barbados flag"
+    },
+    {
+        "id": 32,
+        "image": "/assets/country/Qatar.png",
+        "name": "Qatar",
+        "details": "This is Qatar flag"
+    },
+    {
+        "id": 33,
+        "image": "/assets/country/Hong Kong.png",
+        "name": "Hong Kong",
+        "details": "This is Hong Kong flag"
+    },
+    {
+        "id": 34,
+        "image": "/assets/country/South Africa.png",
+        "name": "South Africa",
+        "details": "This is South Africa flag"
+    },
+    {
+        "id": 35,
+        "image": "/assets/country/Malaysia.png",
+        "name": "Malaysia",
+        "details": "This is Malaysia flag"
+    },
+    {
+        "id": 36,
+        "image": "/assets/country/Morocco.png",
+        "name": "Morocco",
+        "details": "This is Morocco flag"
+    },
+    {
+        "id": 36,
+        "image": "/assets/country/Indonesia.png",
+        "name": "Indonesia",
+        "details": "This is Indonesia flag"
+    }
+]

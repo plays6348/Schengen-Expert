@@ -1,0 +1,29 @@
+/* styles/thankyou.module.css */
+
+.thankyoucontainer {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .thankyouheading {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .thankyoumessage {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .backhomebtn {
+    background-color: #cc1817;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .backhomebtn:hover{
+    background-color: rgb(142, 16, 16);
+  }
