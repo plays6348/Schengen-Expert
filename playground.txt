@@ -1,0 +1,673 @@
+import React, { useEffect, useState } from 'react';
+import styles from '@/styles/singleAirlineFares.module.css';
+import { useRouter } from 'next/router';
+import Layout from '../../../components/layout';
+import FareCard from '@/components/common/fareCard';
+import { countries } from 'utils/data';
+
+// firebase
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  startAfter,
+  limit,
+} from 'firebase/firestore';
+import { db } from '../../../config/firebaseConfig';
+import { convertString } from '../../../utils/helpers';
+import {
+  Typography,
+  Skeleton,
+  ThemeProvider,
+  Drawer,
+  Box,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  Checkbox,
+  Button,
+  Stack,
+  Paper,
+} from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
+import InquiryForm from '@/components/common/inquiryForm';
+import { theme } from '../../../styles/theme';
+import Searchbar from '@/components/searchEngine';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import { styled } from '@mui/material/styles';
+
+const drawerWidth = 280;
+
+const categories = [
+  'turkish-airlines',
+  'west-jet',
+  'virgin-australia',
+  'virgin-atlantic',
+  'vietnam-airlines',
+  'united-airlines',
+  'thomas-cook-airlines',
+  'thai-airways',
+  'tap-portugal',
+  'swiss-airlines',
+  'south-africa-airways',
+  'singapore-airlines',
+  'saudi-arabian-airlines',
+  'rwand-air',
+  'qatar-airways',
+  'qantas-airways',
+  'pia',
+  'pegasus-airlines',
+  'oman-air',
+  'malaysia-airlines',
+  'lufthansa',
+  'klm',
+  'kenya-airways',
+  'indigo',
+  'golf-air',
+  'etihad-airways',
+  'emirates',
+  'egypt-air',
+  'easy-jet',
+  'brussels-airlines',
+  'british-airways',
+  'american-airlines',
+  'air-transat',
+  'air-france',
+];
+
+const Item = styled(Paper)(({ theme }) => ({
+  // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  // ...theme.typography.body2,
+  // padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
+export default function SingleAirline({ window }) {
+  const router = useRouter();
+  const { airlineSlug } = router.query;
+  const [fares, setFares] = useState([]);
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [airline, setAirline] = useState(null);
+  const [footerData, setFooterData] = useState(null);
+
+  const [skip, setSkip] = useState(0);
+  let [lastDocu, setLastDocu] = useState();
+  const [fetching, setFetching] = useState();
+  const [blockApi, setBlockApi] = useState(false);
+  const [filters, setFilters] = useState({
+    airlines: [],
+  });
+
+  const getData = async () => {
+    if (!blockApi) {
+      setFetching(true);
+      if (fares.length == 0) {
+        const arrOfData = [];
+        const q = query(
+          collection(db, 'fares'),
+          where('airline.name', 'in', [...filters.airlines]),
+          limit(10),
+        );
+        const querySnapshot = await getDocs(q);
+        setLastDocu(querySnapshot.docs[querySnapshot.docs.length - 1]);
+        querySnapshot.forEach((doc) => {
+          arrOfData.push({ ...doc.data(), _id: doc.id });
+        });
+        setFares(arrOfData);
+        // console.log(arrOfData);
+        if (arrOfData.length === 0) {
+          setIsEmpty(true);
+        }
+        if (arrOfData.length < 10) {
+          setBlockApi(true);
+        }
+      } else if (fares.length > 0) {
+        const arrOfData = [];
+        const q = query(
+          collection(db, 'fares'),
+          where('airline.name', 'in', [...filters.airlines]),
+          startAfter(lastDocu),
+          limit(10),
+        );
+        const querySnapshot = await getDocs(q);
+        setLastDocu(querySnapshot.docs[querySnapshot.docs.length - 1]);
+        querySnapshot.forEach((doc) => {
+          arrOfData.push({ ...doc.data(), _id: doc.id });
+        });
+        setFares([...fares, ...arrOfData]);
+        if (arrOfData.length < 10) {
+          setBlockApi(true);
+        }
+      }
+      setFetching(false);
+    }
+  };
+
+  const getAirlineInfo = async () => {
+    const arrOfData = [];
+    const q = query(
+      collection(db, 'airlines'),
+      where('name', '==', airlineSlug),
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      arrOfData.push({ ...doc.data(), _id: doc.id });
+    });
+
+    setAirline(arrOfData[0]);
+  };
+
+  const getFooterData = async () => {
+    const arrOfData = [];
+    const q = query(
+      collection(db, 'airlinesFooter'),
+      where('name', '==', airlineSlug),
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      arrOfData.push({ ...doc.data(), _id: doc.id });
+    });
+
+    setFooterData(arrOfData[0]);
+    // console.log(arrOfData[0]);
+  };
+
+  useEffect(() => {
+    if (filters.airlines[0]) {
+      getData();
+    }
+    // console.log(filters.airlines);
+  }, [airlineSlug]);
+
+  useEffect(() => {
+    if (airlineSlug) {
+      setFilters({ ...filters, airlines: [airlineSlug] });
+      getAirlineInfo();
+      getFooterData();
+    }
+  }, [airlineSlug]);
+
+  useEffect(() => {
+    if (airlineSlug) {
+      getData();
+    }
+  }, [skip]);
+
+  const handleSideBar = () => {
+    setShowSideBar(!showSideBar);
+    // console.log(showSideBar);
+  };
+
+  const filterUnselectedAirlinesFares = (airlineToFilter) => {
+    const filteredFares = fares.filter(
+      (item) => item.airline.name != airlineToFilter,
+    );
+    setFares(filteredFares);
+  };
+
+  const handleChangeFilter = (e, type) => {
+    if (type === 'airlines') {
+      const arr = [...filters.airlines];
+      let value = e.target.value;
+      if (!arr.includes(value)) {
+        arr.push(value);
+        setFilters({ ...filters, airlines: arr });
+      } else if (arr.includes(value)) {
+        if (filters.airlines.length > 1) {
+          const index = arr.indexOf(value);
+          arr.splice(index, 1);
+          setFilters({ ...filters, airlines: arr });
+          filterUnselectedAirlinesFares(e.target.value);
+        }
+      }
+      getData();
+    }
+  };
+
+  const drawer = (
+    <div>
+      <div className={styles.drawer}>
+        <Stack
+          direction="row"
+          spacing={2}
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Typography sx={{ marginTop: '1rem' }} variant="h5">
+            Airlines
+          </Typography>
+          {/* <Button variant="outlined" onClick={() => handleSideBar()}>
+            Done
+          </Button> */}
+        </Stack>
+        <div className={styles.airlineFilters}>
+          {categories.map((item) => (
+            <FormControlLabel
+              key={item}
+              sx={{ width: 'fit-content' }}
+              control={
+                <Checkbox
+                  checked={filters.airlines.includes(item)}
+                  onChange={(e) => handleChangeFilter(e, 'airlines')}
+                  value={item}
+                />
+              }
+              label={convertString(item)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  const [showSideBar, setShowSideBar] = useState(false);
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
+  // console.log(airline);
+  // console.log(footerData);
+  // console.log(fares);
+
+  return (
+    <Layout title={'Airlines'}>
+      <div className={styles.faresPage}>
+        {airline ? (
+          <>
+            <div className={styles.bannerImg}>
+              <img src={airline.banner} alt={`${airline.name} image`} />
+
+              {/* {airlineSlug && (
+              <div className={styles.bannerTxt} style={{ display: "none" }}>
+                <h1>{convertString(airlineSlug)}</h1>
+              </div>
+            )} */}
+            </div>
+            <div style={{ marginTop: '2rem' }}>
+              <Searchbar />
+            </div>
+          </>
+        ) : (
+          <>
+            {airlineSlug && (
+              <div className={styles.bannerTxt}>
+                <h1>{convertString(airlineSlug)}</h1>
+              </div>
+            )}
+          </>
+        )}
+        {/* <div className={styles.faresSidebar}> */}
+        {/* <div className={styles.secondSidebar}>{drawer}</div> */}
+        {/* </div> */}
+        <div className={styles.filterBtn}>
+          <Button variant="contained" onClick={() => handleSideBar()}>
+            <FilterAltIcon sx={{ color: 'white' }} /> Filters
+          </Button>
+        </div>
+        <div className={styles.faresContainer}>
+          {fares.length > 0 ? (
+            <>
+              {fares.length > 0 &&
+                fares.map((fare, i) => (
+                  <FareCard data={fare} key={i} index={i} />
+                ))}
+            </>
+          ) : (
+            <>
+              {
+                <>
+                  {!isEmpty && (
+                    <>
+                      {Array(6)
+                        .fill(true)
+                        .map((item, i) => (
+                          <div key={i}>
+                            <div className={styles.fareSkeletonForPC}>
+                              <Skeleton
+                                variant="rectangular"
+                                width={560}
+                                height={215}
+                              />
+                            </div>
+                            <div className={styles.fareSkeletonForPhone}>
+                              <Skeleton
+                                variant="rectangular"
+                                width={280}
+                                height={480}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                    </>
+                  )}
+                </>
+              }
+            </>
+          )}
+        </div>
+        <ThemeProvider theme={theme}>
+          {fares.length > 0 && (
+            <LoadingButton
+              sx={{ margin: '1rem' }}
+              loading={fetching}
+              disabled={blockApi}
+              onClick={() => setSkip(skip + 1)}
+              variant="contained"
+            >
+              {blockApi ? 'No More' : 'More'}
+            </LoadingButton>
+          )}
+        </ThemeProvider>
+        <>{isEmpty && <InquiryForm h1="Send Inquiry" />}</>
+      </div>
+      {footerData && (
+        <div className={styles.airlineFooterContainer}>
+          <div className={styles.airlineFooter}>
+            <h2>{footerData.mainTxt}</h2>
+            <div className={styles.airlineFooter__cards}>
+              {footerData.cards.map((item, i) => (
+                <div key={i} className={styles.airlineFooter__card}>
+                  <div className={styles.card__img}>
+                    <img src={item.img} alt="airlineFooter card img" />
+                  </div>
+                  <div className={styles.card__txt}>
+                    <h4>{item.heading}</h4>
+                    <p>{item.txt}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      {airline && (
+        <div className={styles.footerBanner}>
+          <div className={styles.bannerImg}>
+            <img src={airline.banner} alt={`${airline.name} image`} />
+          </div>
+        </div>
+      )}
+      <Box
+        component="nav"
+        sx={{
+          width: { sm: drawerWidth },
+          flexShrink: { sm: 0 },
+          zIndex: 1000,
+        }}
+        aria-label="mailbox folders"
+      >
+        <Drawer
+          id="hbhjhb"
+          anchor="bottom"
+          container={container}
+          variant="temporary"
+          open={showSideBar}
+          onClose={handleSideBar}
+          ModalProps={{
+            keepMounted: true,
+          }}
+          sx={{
+            // display: { xs: 'block', sm: 'block', md: 'none' },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              // width: drawerWidth,
+              height: '60vh',
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+    </Layout>
+  );
+}
+
+
+// ####################
+// ####################
+
+import React, { useEffect, useState } from 'react';
+import styles from '@/styles/singleAirlineFares.module.css';
+import { useRouter } from 'next/router';
+import Layout from '../../../components/layout';
+import FareCard from '@/components/common/fareCard';
+import { countries } from 'utils/data';
+
+// firebase
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  startAfter,
+  limit,
+} from 'firebase/firestore';
+import { db } from '../../../config/firebaseConfig';
+import { convertString } from '../../../utils/helpers';
+import { Typography, Skeleton, ThemeProvider } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
+import InquiryForm from '@/components/common/inquiryForm';
+import { theme } from '../../../styles/theme';
+import Searchbar from '@/components/searchEngine';
+
+export default function SingleAirline() {
+  const router = useRouter();
+  const { airlineSlug } = router.query;
+  const [fares, setFares] = useState([]);
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [airline, setAirline] = useState(null);
+  const [footerData, setFooterData] = useState(null);
+
+  const [skip, setSkip] = useState(0);
+  let [lastDocu, setLastDocu] = useState();
+  const [fetching, setFetching] = useState();
+  const [blockApi, setBlockApi] = useState(false);
+
+  const getData = async () => {
+    if (!blockApi) {
+      setFetching(true);
+      if (fares.length == 0) {
+        const arrOfData = [];
+        const q = query(
+          collection(db, 'fares'),
+          where('airline.name', '==', airlineSlug),
+          limit(10),
+        );
+        const querySnapshot = await getDocs(q);
+        setLastDocu(querySnapshot.docs[querySnapshot.docs.length - 1]);
+        querySnapshot.forEach((doc) => {
+          arrOfData.push({ ...doc.data(), _id: doc.id });
+        });
+        setFares(arrOfData);
+        // console.log(arrOfData);
+        if (arrOfData.length === 0) {
+          setIsEmpty(true);
+        }
+        if (arrOfData.length < 10) {
+          setBlockApi(true);
+        }
+      } else if (fares.length > 0) {
+        const arrOfData = [];
+        const q = query(
+          collection(db, 'fares'),
+          where('airline.name', '==', airlineSlug),
+          startAfter(lastDocu),
+          limit(10),
+        );
+        const querySnapshot = await getDocs(q);
+        setLastDocu(querySnapshot.docs[querySnapshot.docs.length - 1]);
+        querySnapshot.forEach((doc) => {
+          arrOfData.push({ ...doc.data(), _id: doc.id });
+        });
+        setFares([...fares, ...arrOfData]);
+        if (arrOfData.length < 10) {
+          setBlockApi(true);
+        }
+      }
+      setFetching(false);
+    }
+  };
+
+  const getAirlineInfo = async () => {
+    const arrOfData = [];
+    const q = query(
+      collection(db, 'airlines'),
+      where('name', '==', airlineSlug),
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      arrOfData.push({ ...doc.data(), _id: doc.id });
+    });
+
+    setAirline(arrOfData[0]);
+  };
+
+  const getFooterData = async () => {
+    const arrOfData = [];
+    const q = query(
+      collection(db, 'airlinesFooter'),
+      where('name', '==', airlineSlug),
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      arrOfData.push({ ...doc.data(), _id: doc.id });
+    });
+
+    setFooterData(arrOfData[0]);
+    console.log(arrOfData[0]);
+  };
+
+  useEffect(() => {
+    if (airlineSlug) {
+      getData();
+      getAirlineInfo();
+      getFooterData();
+    }
+  }, [airlineSlug]);
+
+  useEffect(() => {
+    if (airlineSlug) {
+      getData();
+    }
+  }, [skip]);
+
+  // console.log(airline);
+  // console.log(footerData);
+  // console.log(fares);
+
+  return (
+    <Layout title={'Airlines'}>
+      <ThemeProvider theme={theme}></ThemeProvider>
+      <div className={styles.faresPage}>
+        {airline ? (
+          <>
+            <div className={styles.bannerImg}>
+              <img src={airline.banner} alt={`${airline.name} image`} />
+
+              {/* {airlineSlug && (
+              <div className={styles.bannerTxt} style={{ display: "none" }}>
+                <h1>{convertString(airlineSlug)}</h1>
+              </div>
+            )} */}
+            </div>
+            <div style={{ marginTop: '2rem' }}>
+              <Searchbar />
+            </div>
+          </>
+        ) : (
+          <>
+            {airlineSlug && (
+              <div className={styles.bannerTxt}>
+                <h1>{convertString(airlineSlug)}</h1>
+              </div>
+            )}
+          </>
+        )}
+        <div className={styles.faresContainer}>
+          {fares.length > 0 ? (
+            <>
+              {fares.length > 0 &&
+                fares.map((fare, i) => (
+                  <FareCard data={fare} key={i} index={i} />
+                ))}
+            </>
+          ) : (
+            <>
+              {
+                <>
+                  {!isEmpty && (
+                    <>
+                      {Array(6)
+                        .fill(true)
+                        .map((item, i) => (
+                          <div key={i}>
+                            <div className={styles.fareSkeletonForPC}>
+                              <Skeleton
+                                variant="rectangular"
+                                width={560}
+                                height={215}
+                              />
+                            </div>
+                            <div className={styles.fareSkeletonForPhone}>
+                              <Skeleton
+                                variant="rectangular"
+                                width={280}
+                                height={480}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                    </>
+                  )}
+                </>
+              }
+            </>
+          )}
+        </div>
+        <ThemeProvider theme={theme}>
+          {fares.length > 0 && (
+            <LoadingButton
+              sx={{ margin: '1rem' }}
+              loading={fetching}
+              disabled={blockApi}
+              onClick={() => setSkip(skip + 1)}
+              variant="contained"
+            >
+              {blockApi ? 'No More' : 'More'}
+            </LoadingButton>
+          )}
+        </ThemeProvider>
+        <>{isEmpty && <InquiryForm h1="Send Inquiry" />}</>
+      </div>
+      {footerData && (
+        <div className={styles.airlineFooterContainer}>
+          <div className={styles.airlineFooter}>
+            <h2>{footerData.mainTxt}</h2>
+            <div className={styles.airlineFooter__cards}>
+              {footerData.cards.map((item, i) => (
+                <div key={i} className={styles.airlineFooter__card}>
+                  <div className={styles.card__img}>
+                    <img src={item.img} alt="airlineFooter card img" />
+                  </div>
+                  <div className={styles.card__txt}>
+                    <h4>{item.heading}</h4>
+                    <p>{item.txt}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      {airline && (
+        <div className={styles.footerBanner}>
+          <div className={styles.bannerImg}>
+            <img src={airline.banner} alt={`${airline.name} image`} />
+          </div>
+        </div>
+      )}
+    </Layout>
+  );
+}

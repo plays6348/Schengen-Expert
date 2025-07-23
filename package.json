@@ -1,0 +1,41 @@
+{
+  "name": "fasttravels",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "lint": "next lint",
+    "postbuild": "next-sitemap",
+    "export": "next export"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.7.0",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/lab": "^5.0.0-alpha.99",
+    "@mui/material": "^5.10.3",
+    "emailjs": "^4.0.1",
+    "firebase": "^9.9.3",
+    "material-ui-phone-number": "^3.0.0",
+    "next": "11.0.1",
+    "next-hubspot": "^1.1.6",
+    "next-sitemap": "^1.6.133",
+    "react": "17.0.2",
+    "react-dom": "^17.0.2",
+    "react-facebook-pixel": "^1.0.4",
+    "react-gtm-module": "^2.0.11",
+    "react-hook-form": "^7.47.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.0",
+    "@babel/preset-env": "^7.19.0",
+    "cross-env": "^7.0.3",
+    "eslint": "7.30.0",
+    "eslint-config-next": "11.0.1",
+    "rimraf": "^3.0.2"
+  }
+}
