@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { createTheme } from '@mui/material/styles';\nexport var theme = createTheme({\n  palette: {\n    primary: {\n      main: '#cc1817',\n      contrastText: '#fff'\n    },\n    secondary: {\n      main: '#fff'\n    }\n  },\n  typography: {}\n});","map":null,"metadata":{},"sourceType":"module"}
